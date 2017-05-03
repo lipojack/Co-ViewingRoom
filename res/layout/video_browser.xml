@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright 2015 Google Inc. All rights reserved.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+  -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/content"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:minHeight="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
+        <com.google.android.libraries.cast.companionlibrary.widgets.MiniController
+            android:id="@+id/miniController1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:visibility="gone" >
+        </com.google.android.libraries.cast.companionlibrary.widgets.MiniController>
+
+        <fragment
+            android:id="@+id/browse"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/toolbar"
+            android:layout_marginTop="8dp"
+            android:visibility="invisible"
+            class="com.google.sample.cast.refplayer.browser.VideoBrowserFragment" />
+
+        <EditText
+            android:id="@+id/field_setUserID"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="10"
+            android:hint="Set User ID"
+            android:layout_alignBottom="@+id/merge"
+            android:layout_marginLeft="100dp" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="START"
+            android:id="@+id/merge"
+            android:clickable="true"
+            android:onClick="start"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/field_setUserID" />
+        
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/cover_loading"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:text="   Loading ..."
+        android:textSize="20sp"
+        android:background="#EEFFFFFF"
+        android:visibility="invisible" />
+
+</RelativeLayout>
